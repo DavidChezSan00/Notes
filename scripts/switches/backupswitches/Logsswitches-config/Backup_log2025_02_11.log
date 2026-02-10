@@ -1,0 +1,270 @@
+Backup exitoso para SW-W015-F: /root/devops/switches-config/Quincy/SW-W015-F/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-G: /root/devops/switches-config/Quincy/SW-W015-G/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-N: /root/devops/switches-config/Quincy/SW-W043-N/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-O: /root/devops/switches-config/Quincy/SW-W043-O/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-P: /root/devops/switches-config/Quincy/SW-W043-P/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-P2: /root/devops/switches-config/Quincy/SW-W043-P2/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-Q: /root/devops/switches-config/Quincy/SW-W043-Q/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-R: /root/devops/switches-config/Quincy/SW-W043-R/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-S: /root/devops/switches-config/Quincy/SW-W043-S/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-T: /root/devops/switches-config/Quincy/SW-W043-T/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W037-O: /root/devops/switches-config/Quincy/SW-W037-O/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W037-N: /root/devops/switches-config/Quincy/SW-W037-N/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W047-M: /root/devops/switches-config/Quincy/SW-W047-M/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-H: /root/devops/switches-config/Quincy/SW-W015-H/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-I: /root/devops/switches-config/Quincy/SW-W015-I/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-J: /root/devops/switches-config/Quincy/SW-W015-J/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-K: /root/devops/switches-config/Quincy/SW-W015-K/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-L: /root/devops/switches-config/Quincy/SW-W015-L/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-F: /root/devops/switches-config/Quincy/SW-W043-F/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-G: /root/devops/switches-config/Quincy/SW-W043-G/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-H: /root/devops/switches-config/Quincy/SW-W043-H/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-I: /root/devops/switches-config/Quincy/SW-W043-I/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-J: /root/devops/switches-config/Quincy/SW-W043-J/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-K: /root/devops/switches-config/Quincy/SW-W043-K/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-L: /root/devops/switches-config/Quincy/SW-W043-L/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-M: /root/devops/switches-config/Quincy/SW-W043-M/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Error en SW-W037-P <X.X.X.X>: 
+
+Pattern not detected: 'to continue|[>\\]]' in output.
+
+Things you might try to fix this:
+1. Adjust the regex pattern to better identify the terminating string. Note, in
+many situations the pattern is automatically based on the network device's prompt.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W037-Q: /root/devops/switches-config/Quincy/SW-W037-Q/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para QY-CORE: /root/devops/switches-config/Quincy/QY-CORE/20250211-0805.txt
+
+---------------------------------------------------------------------------------------------
+
+Subida a S3 completada.
+
+---------------------------------------------------------------------------------------------
+
+Carpeta /root/devops/switches-config eliminada exitosamente.
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-F: /root/devops/switches-config/Quincy/SW-W015-F/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-G: /root/devops/switches-config/Quincy/SW-W015-G/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-N: /root/devops/switches-config/Quincy/SW-W043-N/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-O: /root/devops/switches-config/Quincy/SW-W043-O/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-P: /root/devops/switches-config/Quincy/SW-W043-P/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-P2: /root/devops/switches-config/Quincy/SW-W043-P2/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-Q: /root/devops/switches-config/Quincy/SW-W043-Q/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-R: /root/devops/switches-config/Quincy/SW-W043-R/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-S: /root/devops/switches-config/Quincy/SW-W043-S/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-T: /root/devops/switches-config/Quincy/SW-W043-T/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W037-O: /root/devops/switches-config/Quincy/SW-W037-O/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W037-N: /root/devops/switches-config/Quincy/SW-W037-N/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W047-M: /root/devops/switches-config/Quincy/SW-W047-M/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-H: /root/devops/switches-config/Quincy/SW-W015-H/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-I: /root/devops/switches-config/Quincy/SW-W015-I/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-J: /root/devops/switches-config/Quincy/SW-W015-J/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-K: /root/devops/switches-config/Quincy/SW-W015-K/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W015-L: /root/devops/switches-config/Quincy/SW-W015-L/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-F: /root/devops/switches-config/Quincy/SW-W043-F/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-G: /root/devops/switches-config/Quincy/SW-W043-G/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-H: /root/devops/switches-config/Quincy/SW-W043-H/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-I: /root/devops/switches-config/Quincy/SW-W043-I/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-J: /root/devops/switches-config/Quincy/SW-W043-J/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-K: /root/devops/switches-config/Quincy/SW-W043-K/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-L: /root/devops/switches-config/Quincy/SW-W043-L/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W043-M: /root/devops/switches-config/Quincy/SW-W043-M/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Error en SW-W037-P <X.X.X.X>: 
+
+Pattern not detected: 'to continue|[>\\]]' in output.
+
+Things you might try to fix this:
+1. Adjust the regex pattern to better identify the terminating string. Note, in
+many situations the pattern is automatically based on the network device's prompt.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para SW-W037-Q: /root/devops/switches-config/Quincy/SW-W037-Q/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Backup exitoso para QY-CORE: /root/devops/switches-config/Quincy/QY-CORE/20250211-0907.txt
+
+---------------------------------------------------------------------------------------------
+
+Subida a S3 completada.
+
+---------------------------------------------------------------------------------------------
+
+Carpeta /root/devops/switches-config eliminada exitosamente.
+
+---------------------------------------------------------------------------------------------
+

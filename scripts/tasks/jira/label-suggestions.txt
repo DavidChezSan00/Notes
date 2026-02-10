@@ -1,0 +1,22 @@
+[2025-12-15 10:26] Crear usuario superguay para el frontend 002 -> General
+[2025-12-15 10:28] Crear usuario superguay para el frontend 002 -> Windows, Frontends, Users
+[2025-12-15 10:30] Problema en al configuracion de SSLVPN en el FIrewall de Centennial -> Network, Firewall, FirewallCentennial, SSLVPN
+[2025-12-15 10:43] Tarea de prueba -> Ansible
+[2025-12-15 11:01] Crear un fronted con una config especial para Ansible -> Windows, Ansible
+[2025-12-18 09:54] Problema de acceso de los AP de los Hubs hacia el UbiquityController -> Network
+[2026-01-12 09:39] Problema de acceso desde ansible a los DC de AWS -> Network, Ansible
+[2026-01-12 09:40] Problema de acceso desde Zabbix a Centennial -> Network, FirewallCentennial
+[2026-01-12 14:20] Actualizar FortiOS en Centennial -> Network, Firewall, FirewallCentennial
+[2026-01-12 14:21] Actualizar FortiOS en Madrid -> Network, Firewall, FirewallMadrid
+[2026-01-12 14:21] Actualizar FortiOS en Graz -> Network, Firewall, FirewallGraz
+[2026-01-12 14:22] Actualizar FortiOS en Japan -> Network, Firewall
+[2026-01-12 14:22] Actualizar FortiOS en AWS -> Network, Firewall
+[2026-01-16 11:54] Instalar un nuevo wheel en las maquinas de WINFARM -> Ansible
+[2026-01-16 11:55] Dar permisos de codeartifacts a las WINFARM -> AWS
+[2026-01-19 15:58] Dar permisos de codeartifacts a las maquinas de WINFARM -> AWS
+[2026-01-19 16:51] Actualizar FortiOS en Quincy -> Network, Firewall, FirewallQuincy
+[2026-01-22 18:45] Re-configurar el backup de los FortiGates -> Network, Firewall, Backup
+[2026-01-26 11:37] Prueb oscar -> Misc
+[2026-02-04 17:38] Filtrar todos los servicios de las reglas de Quincy -> Network, FirewallQuincy
+[2026-02-04 17:40] Actualizar el firmware de las Synologys de Centennial -> Synology, FirewallCentennial
+[2026-02-04 17:41] Actualizar el firmware de las Synologys de Graz -> Synology, FirewallGraz

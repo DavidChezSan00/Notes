@@ -1,0 +1,82 @@
+Backups FortiGate - Descripción de los scripts
+
+Resumen general
+Cada script de backup es igual en lógica. Lo único que cambia es:
+1) La URL del firewall (IP/puerto).
+2) El token asociado a ese firewall (definido en firewalls.env).
+
+URL del API
+Cada script define su propia URL con la IP del firewall correspondiente. La ruta y parámetros son iguales:
+https://<IP_DEL_FIREWALL>:12443/api/v2/monitor/system/config/backup?scope=global
+Solo cambia la IP (y, si aplica, el puerto); el endpoint es siempre el mismo.
+
+Flujo del script (idéntico para todos)
+1) Calcula la fecha actual en formato DDMMAAAA.
+2) Define la ubicación (LOCATION) del firewall.
+3) Construye la ruta del archivo local y el destino en S3.
+   - Carpeta local: /root/devops/scripts/firewalls/backup-config/<LOCATION>/
+   - Archivo: backup_config_<LOCATION>_<DDMMAAAA>.conf
+   - Destino S3: s3://dcops-backup/backup_fw/<LOCATION>/backup_config_<LOCATION>_<DDMMAAAA>.conf
+4) Carga el token desde firewalls.env usando la clave "<LOCATION>_TOKEN".
+   - Si no existe, intenta usar la variable de entorno FW_API_TOKEN.
+   - Si no hay token en ninguno de los dos, el script termina con error.
+5) Prepara el header HTTP Authorization: "Bearer <TOKEN>".
+6) Llama al endpoint de backup:
+   /api/v2/monitor/system/config/backup?scope=global
+7) Si la respuesta es 200, guarda el contenido en un archivo local.
+8) Sube el archivo a S3 usando aws s3 cp.
+9) Muestra mensajes de éxito o error.
+
+firewalls.env (evita hardcodear tokens)
+El archivo firewalls.env se guarda junto a los scripts y contiene los tokens de cada firewall.
+Ejemplo:
+QUINCY_TOKEN=...
+MADRID_TOKEN=...
+JAPAN_TOKEN=...
+AWS_TOKEN=...
+
+El script busca automáticamente el token basado en LOCATION:
+- LOCATION = "Quincy" -> QUINCY_TOKEN
+- LOCATION = "Madrid" -> MADRID_TOKEN
+- LOCATION = "JAPAN"  -> JAPAN_TOKEN
+- LOCATION = "AWS"    -> AWS_TOKEN
+
+Detalles técnicos
+- El script desactiva los warnings de SSL en requests (verify=False).
+- Timeout HTTP definido en 60s para la petición de backup.
+- La carpeta local de backup se crea automáticamente si no existe.
+- La subida a S3 falla si aws cli no está configurado o sin permisos.
+- La lógica de subida es por archivo (no recursiva).
+
+Nota: En AWS A/B, ambos scripts usan LOCATION = "AWS" para compartir el mismo token y destino en S3.
+
+Ubicación del backup local
+Los archivos se guardan en:
+/root/devops/scripts/firewalls/backup-config/<LOCATION>/backup_config_<LOCATION>_<DDMMAAAA>.conf
+
+Destino en S3
+Cada archivo se sube a:
+s3://dcops-backup/backup_fw/<LOCATION>/backup_config_<LOCATION>_<DDMMAAAA>.conf
+
+Cómo ejecutar
+Desde la carpeta del script:
+python3 backup_fw_<sitio>.py
+
+Ejemplos:
+python3 backup_fw_quincy.py
+python3 backup_fw_madrid.py
+
+Variables de entorno (opcional)
+Si firewalls.env está en otra ruta:
+export FIREWALLS_ENV_PATH=/ruta/a/firewalls.env
+
+Requisitos
+- Python 3
+- requests instalado
+- AWS CLI configurado (aws s3 cp)
+- Permisos de escritura en /root/devops/scripts/firewalls/ (o ejecutar como root)
+
+Errores comunes
+- 401 Unauthorized: token incorrecto o no válido para ese firewall.
+- 403 Forbidden: token sin permisos de backup.
+- 429 Too Many Requests: rate limit del firewall, esperar y reintentar.

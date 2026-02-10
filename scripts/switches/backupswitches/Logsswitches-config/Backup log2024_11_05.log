@@ -1,0 +1,154 @@
+Automatically Backing Up Log
+Datetime:2024-11-05 16:37
+Host:SW-W015-F
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W015-F/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:37
+Host:SW-W015-G
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W015-G/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:38
+Host:SW-W043-N
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-N/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:38
+Host:SW-W043-O
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-O/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:38
+Host:SW-W043-P
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-P/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:38
+Host:SW-W043-P2
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-P2/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:38
+Host:SW-W043-Q
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-Q/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:38
+Host:SW-W043-R
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-R/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:38
+Host:SW-W043-S
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-S/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:38
+Host:SW-W043-T
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-T/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Host:SW-W037-M <X.X.X.X>
+IP:X.X.X.X
+Type：switch
+Datetime:2024-11-05 16:38
+Info:Unconnected.
+Details:Paramiko: 'No existing session' error: try increasing 'conn_timeout' to 15 seconds or larger.
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:39
+Host:SW-W037-O
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W037-O/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:39
+Host:SW-W037-N
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W037-N/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:39
+Host:SW-W047-M
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W047-M/20241105-1637.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:39
+Host:SW-W015-F
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W015-F/20241105-1639.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:39
+Host:SW-W015-G
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W015-G/20241105-1639.txt
+
+---------------------------------------------------------------------------------------------
+
+Automatically Backing Up Log
+Datetime:2024-11-05 16:39
+Host:SW-W043-N
+Type：switch
+IP:X.X.X.X 
+Successfully backed up to /root/devops/switches-config/SW-W043-N/20241105-1639.txt
+
+---------------------------------------------------------------------------------------------
+

@@ -1,0 +1,77 @@
+- name: Vexcel - Configure AWS RolesAnyWhere ML and MLFARM
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Download and install AWS CLI v2
+      ansible.builtin.unarchive:
+        src: "https://qy-foreman-001/pub/soft_custom/awscliv2.zip"
+        dest: /tmp
+        remote_src: yes
+        validate_certs: false
+
+    - name: Install AWS CLI
+      ansible.builtin.shell: |
+        /tmp/aws/install
+      ignore_errors: yes
+
+    - name: Install AWS signing helper
+      ansible.builtin.get_url:
+        url: "https://qy-foreman-001/pub/soft_custom/aws_signing_helper"
+        dest: /usr/local/bin/aws_signing_helper
+        validate_certs: false
+        mode: '0755'
+
+    - name: Download ML certificates archive
+      ansible.builtin.get_url:
+        url: "https://qy-foreman-001/pub/certs/onprem-ml.zip"
+        dest: /tmp/onprem-ml.zip
+        validate_certs: false
+        mode: '0644'
+
+    - name: Download MLFARM certificates archive
+      ansible.builtin.get_url:
+        url: "https://qy-foreman-001/pub/certs/onprem-mlfarm.zip"
+        dest: /tmp/onprem-mlfarm.zip
+        validate_certs: false
+        mode: '0644'
+
+    - name: Extract ML certificates
+      ansible.builtin.unarchive:
+        src: /tmp/onprem-ml.zip
+        dest: /etc/ssl/certs/
+        remote_src: yes
+        mode: '0644'
+
+    - name: Extract MLFARM certificates
+      ansible.builtin.unarchive:
+        src: /tmp/onprem-mlfarm.zip
+        dest: /etc/ssl/certs/
+        remote_src: yes
+        mode: '0644'
+
+    - name: Set AWS environment variables
+      ansible.builtin.lineinfile:
+        path: /etc/environment
+        line: "{{ item }}"
+        create: yes
+      with_items:
+        - 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"'
+        - export AWS_CONFIG_FILE=/etc/.aws/config
+        - export AWS_SHARED_CREDENTIALS_FILE=/etc/.aws/credentials
+
+    - name: Create AWS config directory
+      ansible.builtin.file:
+        path: /etc/.aws
+        state: directory
+
+    - name: Configure AWS credentials for ML and MLFARM
+      ansible.builtin.copy:
+        content: |
+          [ml]
+          credential_process = "/usr/local/bin/aws_signing_helper" credential-process --certificate "/etc/ssl/certs/aws-onprem-ml.pem" --private-key "/etc/ssl/certs/onprem-ml.key" --trust-anchor-arn "arn:aws:rolesanywhere:us-east-1:XXXXXXXXXXXX:trust-anchor/297cf44d-61ff-4b82-9a9f-ca941ccb35d6" --profile-arn "arn:aws:rolesanywhere:us-east-1:XXXXXXXXXXXX:profile/3ba32dbf-1989-4219-a341-06239ecb11f7" --role-arn "arn:aws:iam::XXXXXXXXXXXX:role/onprem/onprem-ml-01" --region "us-east-1"
+
+          [mlfarm]
+          credential_process = "/usr/local/bin/aws_signing_helper" credential-process --certificate "/etc/ssl/certs/aws-onprem-mlfarm.pem" --private-key "/etc/ssl/certs/onprem-mlfarm.key" --trust-anchor-arn "arn:aws:rolesanywhere:us-east-1:XXXXXXXXXXXX:trust-anchor/297cf44d-61ff-4b82-9a9f-ca941ccb35d6" --profile-arn "arn:aws:rolesanywhere:us-east-1:XXXXXXXXXXXX:profile/099ed454-848d-4dd7-9806-c778bb07597d" --role-arn "arn:aws:iam::XXXXXXXXXXXX:role/onprem/onprem-mlfarm-01" --region "us-east-1"
+        dest: /etc/.aws/credentials
+        mode: '0644'

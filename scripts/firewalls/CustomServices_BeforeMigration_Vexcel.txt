@@ -1,0 +1,1409 @@
+   edit "DNS"
+
+        set category "Network Services"
+
+        set tcp-portrange 53
+
+        set udp-portrange 53
+
+    next
+
+    edit "HTTP"
+
+        set category "Web Access"
+
+        set tcp-portrange 80
+
+    next
+
+    edit "HTTPS"
+
+        set category "Web Access"
+
+        set tcp-portrange 443
+
+    next
+
+    edit "IMAP"
+
+        set category "Email"
+
+        set tcp-portrange 143
+
+    next
+
+    edit "IMAPS"
+
+        set category "Email"
+
+        set tcp-portrange 993
+
+    next
+
+    edit "LDAP"
+
+        set category "Authentication"
+
+        set tcp-portrange 389
+
+    next
+
+    edit "DCE-RPC"
+
+        set category "Remote Access"
+
+        set tcp-portrange 135
+
+        set udp-portrange 135
+
+    next
+
+    edit "POP3"
+
+        set category "Email"
+
+        set tcp-portrange 110
+
+    next
+
+    edit "POP3S"
+
+        set category "Email"
+
+        set tcp-portrange 995
+
+    next
+
+    edit "SAMBA"
+
+        set category "File Access"
+
+        set tcp-portrange 139
+
+    next
+
+    edit "SMTP"
+
+        set category "Email"
+
+        set tcp-portrange 25
+
+    next
+
+    edit "SMTPS"
+
+        set category "Email"
+
+        set tcp-portrange 465 587
+
+    next
+
+    edit "KERBEROS"
+
+        set category "Authentication"
+
+        set tcp-portrange 88 464
+
+        set udp-portrange 88 464
+
+    next
+
+    edit "LDAP_UDP"
+
+        set category "Authentication"
+
+        set udp-portrange 389
+
+    next
+
+    edit "SMB"
+
+        set category "File Access"
+
+        set tcp-portrange 445
+
+    next
+
+    edit "FTP"
+
+        set category "File Access"
+
+        set tcp-portrange 21
+
+    next
+
+    edit "FTP_GET"
+
+        set category "File Access"
+
+        set tcp-portrange 21
+
+    next
+
+    edit "FTP_PUT"
+
+        set category "File Access"
+
+        set tcp-portrange 21
+
+    next
+
+    edit "ALL"
+
+        set category "General"
+
+        set protocol IP
+
+    next
+
+    edit "ALL_TCP"
+
+        set category "General"
+
+        set tcp-portrange 1-65535
+
+    next
+
+    edit "ALL_UDP"
+
+        set category "General"
+
+        set udp-portrange 1-65535
+
+    next
+
+    edit "ALL_ICMP"
+
+        set category "General"
+
+        set protocol ICMP
+
+        unset icmptype
+
+    next
+
+    edit "ALL_ICMP6"
+
+        set category "General"
+
+        set protocol ICMP6
+
+        unset icmptype
+
+    next
+
+    edit "GRE"
+
+        set category "Tunneling"
+
+        set protocol IP
+
+        set protocol-number 47
+
+    next
+
+    edit "AH"
+
+        set category "Tunneling"
+
+        set protocol IP
+
+        set protocol-number 51
+
+    next
+
+    edit "ESP"
+
+        set category "Tunneling"
+
+        set protocol IP
+
+        set protocol-number 50
+
+    next
+
+    edit "AOL"
+
+        set tcp-portrange 5190-5194
+
+    next
+
+    edit "BGP"
+
+        set category "Network Services"
+
+        set tcp-portrange 179
+
+    next
+
+    edit "DHCP"
+
+        set category "Network Services"
+
+        set udp-portrange 67-68
+
+    next
+
+    edit "FINGER"
+
+        set tcp-portrange 79
+
+    next
+
+    edit "GOPHER"
+
+        set tcp-portrange 70
+
+    next
+
+    edit "H323"
+
+        set category "VoIP, Messaging & Other Applications"
+
+        set tcp-portrange 1720 1503
+
+        set udp-portrange 1719
+
+    next
+
+    edit "IKE"
+
+        set category "Tunneling"
+
+        set udp-portrange 500 4500
+
+    next
+
+    edit "Internet-Locator-Service"
+
+        set tcp-portrange 389
+
+    next
+
+    edit "IRC"
+
+        set category "VoIP, Messaging & Other Applications"
+
+        set tcp-portrange 6660-6669
+
+    next
+
+    edit "L2TP"
+
+        set category "Tunneling"
+
+        set tcp-portrange 1701
+
+        set udp-portrange 1701
+
+    next
+
+    edit "NetMeeting"
+
+        set tcp-portrange 1720
+
+    next
+
+    edit "NFS"
+
+        set category "File Access"
+
+        set tcp-portrange 111 2049
+
+        set udp-portrange 111 2049
+
+    next
+
+    edit "NNTP"
+
+        set tcp-portrange 119
+
+    next
+
+    edit "NTP"
+
+        set category "Network Services"
+
+        set tcp-portrange 123
+
+        set udp-portrange 123
+
+    next
+
+    edit "OSPF"
+
+        set category "Network Services"
+
+        set protocol IP
+
+        set protocol-number 89
+
+    next
+
+    edit "PC-Anywhere"
+
+        set category "Remote Access"
+
+        set tcp-portrange 5631
+
+        set udp-portrange 5632
+
+    next
+
+    edit "PING"
+
+        set category "Network Services"
+
+        set protocol ICMP
+
+        set icmptype 8
+
+        unset icmpcode
+
+    next
+
+    edit "TIMESTAMP"
+
+        set protocol ICMP
+
+        set icmptype 13
+
+        unset icmpcode
+
+    next
+
+    edit "INFO_REQUEST"
+
+        set protocol ICMP
+
+        set icmptype 15
+
+        unset icmpcode
+
+    next
+
+    edit "INFO_ADDRESS"
+
+        set protocol ICMP
+
+        set icmptype 17
+
+        unset icmpcode
+
+    next
+
+    edit "ONC-RPC"
+
+        set category "Remote Access"
+
+        set tcp-portrange 111
+
+        set udp-portrange 111
+
+    next
+
+    edit "PPTP"
+
+        set category "Tunneling"
+
+        set tcp-portrange 1723
+
+    next
+
+    edit "QUAKE"
+
+        set udp-portrange 26000 27000 27910 27960
+
+    next
+
+    edit "RAUDIO"
+
+        set udp-portrange 7070
+
+    next
+
+    edit "REXEC"
+
+        set tcp-portrange 512
+
+    next
+
+    edit "RIP"
+
+        set category "Network Services"
+
+        set udp-portrange 520
+
+    next
+
+    edit "RLOGIN"
+
+        set tcp-portrange 513:512-1023
+
+    next
+
+    edit "RSH"
+
+        set tcp-portrange 514:512-1023
+
+    next
+
+    edit "SCCP"
+
+        set category "VoIP, Messaging & Other Applications"
+
+        set tcp-portrange 2000
+
+    next
+
+    edit "SIP"
+
+        set category "VoIP, Messaging & Other Applications"
+
+        set tcp-portrange 5060
+
+        set udp-portrange 5060
+
+    next
+
+    edit "SIP-MSNmessenger"
+
+        set category "VoIP, Messaging & Other Applications"
+
+        set tcp-portrange 1863
+
+    next
+
+    edit "SNMP"
+
+        set category "Network Services"
+
+        set tcp-portrange 161-162
+
+        set udp-portrange 161-162
+
+    next
+
+    edit "SSH"
+
+        set category "Remote Access"
+
+        set tcp-portrange 22
+
+    next
+
+    edit "SYSLOG"
+
+        set category "Network Services"
+
+        set udp-portrange 514
+
+    next
+
+    edit "TALK"
+
+        set udp-portrange 517-518
+
+    next
+
+    edit "TELNET"
+
+        set category "Remote Access"
+
+        set tcp-portrange 23
+
+    next
+
+    edit "TFTP"
+
+        set category "File Access"
+
+        set udp-portrange 69
+
+    next
+
+    edit "MGCP"
+
+        set udp-portrange 2427 2727
+
+    next
+
+    edit "UUCP"
+
+        set tcp-portrange 540
+
+    next
+
+    edit "VDOLIVE"
+
+        set tcp-portrange 7000-7010
+
+    next
+
+    edit "WAIS"
+
+        set tcp-portrange 210
+
+    next
+
+    edit "WINFRAME"
+
+        set tcp-portrange 1494 2598
+
+    next
+
+    edit "X-WINDOWS"
+
+        set category "Remote Access"
+
+        set tcp-portrange 6000-6063
+
+    next
+
+    edit "PING6"
+
+        set protocol ICMP6
+
+        set icmptype 128
+
+        unset icmpcode
+
+    next
+
+    edit "MS-SQL"
+
+        set category "VoIP, Messaging & Other Applications"
+
+        set tcp-portrange 1433 1434
+
+    next
+
+    edit "MYSQL"
+
+        set category "VoIP, Messaging & Other Applications"
+
+        set tcp-portrange 3306
+
+    next
+
+    edit "RDP"
+
+        set category "Remote Access"
+
+        set tcp-portrange 3389
+
+    next
+
+    edit "VNC"
+
+        set category "Remote Access"
+
+        set tcp-portrange 5900
+
+    next
+
+    edit "DHCP6"
+
+        set category "Network Services"
+
+        set udp-portrange 546 547
+
+    next
+
+    edit "SQUID"
+
+        set category "Tunneling"
+
+        set tcp-portrange 3128
+
+    next
+
+    edit "SOCKS"
+
+        set category "Tunneling"
+
+        set tcp-portrange 1080
+
+        set udp-portrange 1080
+
+    next
+
+    edit "WINS"
+
+        set category "Remote Access"
+
+        set tcp-portrange 1512
+
+        set udp-portrange 1512
+
+    next
+
+    edit "RADIUS"
+
+        set category "Authentication"
+
+        set udp-portrange 1812 1813
+
+    next
+
+    edit "RADIUS-OLD"
+
+        set udp-portrange 1645 1646
+
+    next
+
+    edit "CVSPSERVER"
+
+        set tcp-portrange 2401
+
+        set udp-portrange 2401
+
+    next
+
+    edit "AFS3"
+
+        set category "File Access"
+
+        set tcp-portrange 7000-7009
+
+        set udp-portrange 7000-7009
+
+    next
+
+    edit "TRACEROUTE"
+
+        set category "Network Services"
+
+        set udp-portrange 33434-33535
+
+    next
+
+    edit "RTSP"
+
+        set category "VoIP, Messaging & Other Applications"
+
+        set tcp-portrange 554 7070 8554
+
+        set udp-portrange 554
+
+    next
+
+    edit "MMS"
+
+        set tcp-portrange 1755
+
+        set udp-portrange 1024-5000
+
+    next
+
+    edit "NONE"
+
+        set tcp-portrange 0
+
+    next
+
+    edit "webproxy"
+
+        set proxy enable
+
+        set category "Web Proxy"
+
+        set protocol ALL
+
+        set tcp-portrange 0-65535:0-65535
+
+    next
+
+    edit "Temp-FW02-SSH"
+
+        set tcp-portrange 9022
+
+    next
+
+    edit "Temp-FW02-HTTPS"
+
+        set tcp-portrange 9443
+
+    next
+
+    edit "iPerf2-3"
+
+        set category "Network Services"
+
+        set tcp-portrange 5201-5204 5001-5004
+
+    next
+
+    edit "Rclone"
+
+        set category "Network Services"
+
+        set comment "Rclone direct transfer"
+
+        set tcp-portrange 9583
+
+    next
+
+    edit "TCP-5893"
+
+        set category "File Access"
+
+        set tcp-portrange 5893
+
+    next
+
+    edit "UDP-5893"
+
+        set category "File Access"
+
+        set udp-portrange 5893
+
+    next
+
+    edit "iPerf2"
+
+        set category "Network Services"
+
+        set tcp-portrange 5201-5208
+
+    next
+
+    edit "Zabbix_Server"
+
+        set category "Network Services"
+
+        set tcp-portrange 10050
+
+    next
+
+    edit "PGSQL"
+
+        set tcp-portrange 5432
+
+    next
+
+    edit "TCP_12443"
+
+        set tcp-portrange 12443
+
+    next
+
+    edit "TCP-5894"
+
+        set category "File Access"
+
+        set tcp-portrange 5894
+
+    next
+
+    edit "TCP-5896"
+
+        set category "File Access"
+
+        set tcp-portrange 5896
+
+    next
+
+    edit "LDAP_SSL"
+
+        set category "Authentication"
+
+        set tcp-portrange 636
+
+    next
+
+    edit "LDAP_GC"
+
+        set category "Authentication"
+
+        set tcp-portrange 3268
+
+    next
+
+    edit "LDAP_GC_SSL"
+
+        set category "Authentication"
+
+        set tcp-portrange 3269
+
+    next
+
+    edit "SMB_UDP"
+
+        set category "File Access"
+
+        set udp-portrange 445
+
+    next
+
+    edit "NETLOGON"
+
+        set tcp-portrange 139
+
+        set udp-portrange 137-138
+
+    next
+
+    edit "RPC"
+
+        set category "File Access"
+
+        set tcp-portrange 5722
+
+    next
+
+    edit "SOAP"
+
+        set tcp-portrange 9389
+
+    next
+
+    edit "RPC_NETLOGON_FRS"
+
+        set tcp-portrange 49152-65535
+
+    next
+
+    edit "CEPH S3 Bucket TCP/8080"
+
+        set category "File Access"
+
+        set tcp-portrange 8080
+
+    next
+
+    edit "Zabbix_Client"
+
+        set category "Network Services"
+
+        set tcp-portrange 10051
+
+    next
+
+    edit "REDIS"
+
+        set comment "Redis databases port"
+
+        set tcp-portrange 6379
+
+    next
+
+    edit "CEPH S3 Bucket TCP/8090"
+
+        set category "File Access"
+
+        set tcp-portrange 8090
+
+    next
+
+    edit "AWS_SGW"
+
+        set color 9
+
+        set tcp-portrange 443 1026 1027 1028 1031 2222
+
+    next
+
+    edit "UMLicense"
+
+        set category "File Access"
+
+        set tcp-portrange 1947
+
+    next
+
+    edit "WinRM 2.0"
+
+        set category "Remote Access"
+
+        set tcp-portrange 5984-5986
+
+    next
+
+    edit "HTTP_ALT"
+
+        set category "Network Services"
+
+        set tcp-portrange 8080-8081
+
+    next
+
+    edit "UltraMapPort25"
+
+        set category "General"
+
+        set tcp-portrange 2125
+
+    next
+
+    edit "UltraMapPort26"
+
+        set category "General"
+
+        set tcp-portrange 2126
+
+    next
+
+    edit "GlobalMapper"
+
+        set category "Remote Access"
+
+        set tcp-portrange 27000
+
+    next
+
+    edit "GlobalMapper-2"
+
+        set category "File Access"
+
+        set tcp-portrange 50614
+
+    next
+
+    edit "HTTP_FARM"
+
+        set tcp-portrange 8080-8083
+
+    next
+
+    edit "CEPH_ADM_Portal"
+
+        set category "Web Access"
+
+        set color 6
+
+        set tcp-portrange 8443
+
+    next
+
+    edit "Mario"
+
+        set category "Web Access"
+
+        set tcp-portrange 9001-9100
+
+    next
+
+    edit "Docker_Registry"
+
+        set tcp-portrange 5000
+
+    next
+
+    edit "Prometheus-Ceph01"
+
+        set category "Network Services"
+
+        set comment "Port of Prometheus CEPH01"
+
+        set color 6
+
+        set tcp-portrange 9092
+
+    next
+
+    edit "Prometheus-Ceph02"
+
+        set category "Network Services"
+
+        set comment "Port of Prometheus Ceph02"
+
+        set color 10
+
+        set tcp-portrange 9095
+
+    next
+
+    edit "Prometheus-Ceph03"
+
+        set category "Network Services"
+
+        set comment "Port of Prometheus Ceph03"
+
+        set color 18
+
+        set tcp-portrange 9095
+
+    next
+
+    edit "Prometheus-Ceph04"
+
+        set category "Network Services"
+
+        set comment "Port of  Prometheus Ceph04"
+
+        set color 13
+
+        set tcp-portrange 9095
+
+    next
+
+    edit "Grafana-InfluxDB"
+
+        set category "Network Services"
+
+        set comment "Port of Grafana to InfluxDB"
+
+        set color 17
+
+        set tcp-portrange 8086
+
+    next
+
+    edit "PowerManagement"
+
+        set category "Remote Access"
+
+        set tcp-portrange 623
+
+    next
+
+    edit "ProvisioningTemplate"
+
+        set category "Network Services"
+
+        set tcp-portrange 8000
+
+    next
+
+    edit "OpenScap"
+
+        set tcp-portrange 9090
+
+    next
+
+    edit "WSMan"
+
+        set category "Network Services"
+
+        set tcp-portrange 5985
+
+    next
+
+    edit "Proxmox"
+
+        set category "Network Services"
+
+        set tcp-portrange 8006
+
+    next
+
+    edit "SSLVPN"
+
+        set tcp-portrange 10443
+
+    next
+
+    edit "Loki"
+
+        set category "Network Services"
+
+        set tcp-portrange 3100
+
+    next
+
+    edit "WSUS"
+
+        set category "Network Services"
+
+        set tcp-portrange 8530 8531
+
+    next
+
+    edit "DCOM_RPC"
+
+        set category "Network Services"
+
+        set tcp-portrange 1722
+
+        set udp-portrange 1722
+
+    next
+
+    edit "IMC_Web_console"
+
+        set tcp-portrange 2068
+
+    next
+
+    edit "Prometheus_smb_exporter"
+
+        set tcp-portrange 9922
+
+    next
+
+    edit "QUMULO API"
+
+        set category "Remote Access"
+
+        set tcp-portrange 8000
+
+    next
+
+    edit "CEPHFS"
+
+        set category "File Access"
+
+        set tcp-portrange 6800-7300 3300 6789
+
+    next
+
+    edit "Prometheus_node_exporter"
+
+        set category "Network Services"
+
+        set tcp-portrange 9100
+
+    next
+
+    edit "VisualStudio-Debugger"
+
+        set tcp-portrange 4026
+
+    next
+
+    edit "Console-Java-Port"
+
+        set tcp-portrange 7578
+
+    next
+
+    edit "FlightOps-app-1"
+
+        set tcp-portrange 3000
+
+    next
+
+    edit "FlightOps-Web"
+
+        set category "Network Services"
+
+        set tcp-portrange 5010-5011
+
+    next
+
+    edit "CTF"
+
+        set category "Network Services"
+
+        set tcp-portrange 84
+
+    next
+
+    edit "HTTP_ALT2"
+
+        set tcp-portrange 8443
+
+    next
+
+    edit "Topoflight Port"
+
+        set category "Network Services"
+
+        set iprange X.X.X.X-X.X.X.X
+
+        set tcp-portrange 1947
+
+    next
+
+    edit "MongoDB Port"
+
+        set category "Network Services"
+
+        set tcp-portrange 27017
+
+    next
+
+    edit "NVIDIA Triton"
+
+        set category "Network Services"
+
+        set tcp-portrange 8000-8002
+
+    next
+
+    edit "wazuh-ports"
+
+        set category "Network Services"
+
+        set color 6
+
+        set tcp-portrange 1514-1516
+
+    next
+
+    edit "NTS"
+
+        set category "Network Services"
+
+        set tcp-portrange 4460
+
+    next
+
+    edit "FarmServices_1"
+
+        set category "Network Services"
+
+        set tcp-portrange 3000
+
+    next
+
+    edit "FarmServices_2"
+
+        set tcp-portrange 8000-8002
+
+    next
+
+    edit "ML_Graphana"
+
+        set category "Network Services"
+
+        set tcp-portrange 3000
+
+    next
+
+    edit "UDP/443"
+
+        set udp-portrange 443
+
+    next
+
+    edit "Prometheus_windows_exporter"
+
+        set tcp-portrange 9182
+
+    next
+
+    edit "Prometheus-gpu-exporter"
+
+        set tcp-portrange 9835
+
+    next
+
+    edit "UDP_5093"
+
+        set udp-portrange 5093
+
+    next
+
+    edit "UDP-3389"
+
+        set udp-portrange 3389
+
+    next
+
+    edit "UDP_4123"
+
+        set udp-portrange 4123
+
+    next
+
+    edit "Prometheus-triton"
+
+        set category "Network Services"
+
+        set tcp-portrange 8002
+
+    next
+
+    edit "TCP/5228"
+
+        set tcp-portrange 5228
+
+    next
+
+end
+
+config firewall service group
+
+    edit "Email Access"
+
+        set member "DNS" "IMAP" "IMAPS" "POP3" "POP3S" "SMTP" "SMTPS"
+
+    next
+
+    edit "Web Access"
+
+        set member "HTTP" "HTTPS" "HTTP_ALT" "HTTP_ALT2" "PING"
+
+    next
+
+    edit "Windows AD"
+
+        set member "DCE-RPC" "DNS" "KERBEROS" "LDAP" "LDAP_UDP" "SAMBA" "SMB"
+
+    next
+
+    edit "Exchange Server"
+
+        set member "DCE-RPC" "DNS" "HTTPS"
+
+    next
+
+    edit "Domain-Controller"
+
+        set member "DNS" "LDAP" "LDAP_UDP" "PING" "KERBEROS" "NTP" "SMB" "SMTP" "LDAP_GC" "LDAP_GC_SSL" "LDAP_SSL" "DCE-RPC" "NETLOGON" "RPC" "SMB_UDP" "SOAP" "RPC_NETLOGON_FRS" "WinRM 2.0"
+
+    next
+
+    edit "UDP_Dynamic"
+
+        set member "RPC"
+
+    next
+
+    edit "Zabbix"
+
+        set member "Zabbix_Client" "Zabbix_Server" "SNMP"
+
+    next
+
+    edit "AccessServers"
+
+        set member "FTP" "RDP" "SSH" "ALL_ICMP"
+
+    next
+
+    edit "RemoteAccess"
+
+        set member "RDP" "SSH" "PING"
+
+    next
+
+    edit "UltraMapPorts"
+
+        set member "UltraMapPort25" "UltraMapPort26"
+
+    next
+
+    edit "FarmServices"
+
+        set member "HTTP" "HTTP_FARM" "FarmServices_1" "FarmServices_2"
+
+    next
+
+    edit "Prometheus-CEPH"
+
+        set member "Prometheus-Ceph01" "Prometheus-Ceph02" "Prometheus-Ceph03" "Prometheus-Ceph04"
+
+        set comment "Ports of Prometheus Ceph"
+
+        set color 20
+
+    next
+
+    edit "ForemanServices"
+
+        set member "OpenScap" "PowerManagement" "ProvisioningTemplate" "SSH" "Web Access" "SAMBA" "SMB"
+
+        set color 10
+
+    next
+
+    edit "Flightops-Services"
+
+        set member "Docker_Registry" "FlightOps-app-1" "iPerf2-3" "MS-SQL" "VisualStudio-Debugger" "FlightOps-Web" "CTF" "MongoDB Port"
+
+    next
+
+end

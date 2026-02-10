@@ -1,0 +1,127 @@
+#!/bin/bash
+
+SLACK_TOKEN="xoxb-XXXXXXXXXXXX-7376607102433-xdZVUpWOJVNeCkFsEB8GXsH7"  ## Bot Ymnir
+CHANNEL_ID="C0353LL73EF"
+
+
+# Timestamp of the initial message (to be obtained after sending the initial message)
+initial_ts=""
+
+# Get session_token
+session_token=$(curl -s -X GET \
+  "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/initSession?login=viewer&password=XXXX" \
+  -H "App-Token: XXXX" | jq -r '.session_token')
+
+# Check if session_token was obtained
+if [ -z "$session_token" ]; then
+  exit 1
+fi
+
+# Get all tickets
+response_tickets=$(curl -s -X GET \
+  -H "Content-Type: application/json" \
+  -H "Session-Token: XXXX" \
+  -H "App-Token: XXXX" \
+  "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Ticket?expand_dropdowns=true&range=0-999")
+
+ticket_count=$(echo "$response_tickets" | jq '. | length')
+
+# Exit if no tickets found
+if [ "$ticket_count" -eq 0 ]; then
+  exit 0
+fi
+
+# --- Filter and count open tickets ---
+open_tickets_count=$(echo "$response_tickets" | jq '[.[] | select(.status <= 4)] | length')
+
+# Set the initial message with the ticket count included
+initial_message="*[ GLPI Ticket Summary ]*\n*We have $open_tickets_count tickets opened*"
+
+# Send the initial message to the Slack channel and get the timestamp of the message
+initial_response=$(curl -s -X POST "https://slack.com/api/chat.postMessage" \
+  -H "Authorization: Bearer $SLACK_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"channel\":\"$CHANNEL_ID\",\"text\":\"$initial_message\"}")
+
+# Extract the timestamp of the initial message
+initial_ts=$(echo "$initial_response" | jq -r '.ts')
+
+if [ "$initial_ts" != "null" ]; then
+
+  # Loop through ticket IDs and names, filter by open status
+  echo "$response_tickets" | jq -r '.[] | "\(.id) \(.name)"' | while IFS= read -r ticket_info; do
+    ticket_id=$(echo "$ticket_info" | awk '{print $1}')
+    ticket_name=$(echo "$ticket_info" | awk '{$1=""; print $0}' | sed 's/^ *//')
+
+    # Get ticket status
+    ticket_response=$(curl -s -X GET \
+      -H "Content-Type: application/json" \
+      -H "Session-Token: XXXX" \
+      -H "App-Token: XXXX" \
+      "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Ticket/$ticket_id?expand_dropdowns=true")
+
+    # Extract status and handle possible errors
+    status_ticket=$(echo "$ticket_response" | jq -r '.status // empty')
+
+    if [[ -z "$status_ticket" ]]; then
+      message="Error: No status found for ticket '$ticket_name'. Response: $ticket_response"
+      continue
+    elif ! [[ "$status_ticket" =~ ^[0-9]+$ ]]; then
+      message="Error: Invalid status for ticket '$ticket_name'. Status: $status_ticket"
+      continue
+    fi
+
+    # Check if the ticket is open (status 1-4)
+    if [ "$status_ticket" -le 4 ]; then
+
+      # Get associated computers for the ticket
+      associated_computers=$(curl -s -X GET \
+        -H "Content-Type: application/json" \
+        -H "Session-Token: XXXX" \
+        -H "App-Token: XXXX" \
+        "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Ticket/$ticket_id/Item_Ticket?expand_dropdowns=true")
+
+      id_host=$(echo "$associated_computers" | jq -r '.[0].items_id // empty')
+
+      # Check if a machine ID was found
+      if [[ -n "$id_host" ]]; then
+        message="*Ticket number: * $ticket_id\n *Tittle: * $ticket_name\n*Server: * $id_host"
+      else
+        message="No associated machine found for the ticket '$ticket_name'."
+      fi
+
+      # --- Get Document Info ---
+      document_info=$(curl -s -X GET \
+        -H "Content-Type: application/json" \
+        -H "Session-Token: XXXX" \
+        -H "App-Token: XXXX" \
+        "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Ticket/$ticket_id/Document_Item")
+
+      if [ "$document_info" != "[]" ]; then 
+        document_id=$(echo "$document_info" | jq -r '.[0].documents_id')
+
+        document_details=$(curl -s -X GET \
+          -H "Content-Type: application/json" \
+          -H "Session-Token: XXXX" \
+          -H "App-Token: XXXX" \
+          "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Document/$document_id")
+
+        filename=$(echo "$document_details" | jq -r '.filename')
+
+        if [ -n "$filename" ]; then
+          message+="\n*Document: * $filename\n"
+        fi
+      fi
+
+      # --- Slack ---
+      if [ -n "$message" ]; then
+        curl -s -X POST "https://slack.com/api/chat.postMessage" \
+          -H "Authorization: Bearer $SLACK_TOKEN" \
+          -H "Content-Type: application/json" \
+          -d "{\"channel\":\"$CHANNEL_ID\",\"attachments\":[{\"color\":\"#0ba6e5\",\"text\":\"$message\",\"fallback\":\"$message\",\"mrkdwn_in\":[\"text\"]}],\"thread_ts\":\"$initial_ts\"}"
+      fi
+
+    fi
+  done
+
+fi

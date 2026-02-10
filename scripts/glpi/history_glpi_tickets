@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Pedir el nombre del host
+read -p "Dime el nombre del host: " host
+
+# Obtener session_token
+session_token=$(curl -s -X GET \
+  "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/initSession?login=viewer&password=XXXX" \
+  -H "App-Token: XXXX" \
+  | jq -r '.session_token')
+
+# Verificar si se obtuvo el session_token
+if [ -z "$session_token" ]; then
+  echo "Error al obtener el session token." 
+  exit 1
+fi
+
+# Obtener el ID del host
+id_host=$(curl -s -X GET \
+  -H 'Content-Type: application/json' \
+  -H "Session-Token: XXXX" \
+  -H "App-Token: XXXX" \
+  "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Computer?expand_dropdowns=true&range=0-999" \
+  | jq -r ".[] | select(.name | contains(\"$host\")) | .id")
+
+# Verificar si se encontró un id_host
+if [ -z "$id_host" ]; then
+  echo "No se encontró un host con ese nombre."
+  exit 1
+fi
+
+##---------------------------------------------------------------- 
+# Numero de tickets que tiene el host
+response_tickets=$(curl -s -X GET \
+  -H 'Content-Type: application/json' \
+  -H "Session-Token: XXXX" \
+  -H "App-Token: XXXX" \
+  "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Computer/$id_host/Item_Ticket?expand_dropdowns=true&range=0-999")
+
+ticket_count=$(echo "$response_tickets" | jq '. | length')
+if [ "$ticket_count" -eq 0 ]; then
+  echo "No se encontraron tickets para este host."
+  exit 0
+fi
+##---------------------------------------------------------------
+
+# Sacar todos los datos de los tickets
+data_tickets=$(curl -s -X GET \
+ -H 'Content-Type: application/json' \
+ -H "Session-Token: XXXX" \
+ -H "App-Token: XXXX" \
+ 'http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Ticket?expand_dropdowns=true&range=0-999')
+
+
+  ## DEBUG-Imprimir el número de tickets
+  #echo "Número de tickets: $ticket_count"
+
+# Bucle para leer los  nombres de los tickets para imprimir el estado de cada uno
+echo "$response_tickets" | jq -r '.[].tickets_id' | while IFS= read -r ticket_name; do
+
+  ## DEBUG-Imprimir el numero de tikcets que ha encontrado
+  #echo "$ticket_name"
+
+  id_ticket=$(echo "$data_tickets" | jq -r --arg tn "$ticket_name" '.[] | select(.name == $tn) | .id')
+
+  # Verificar si id_ticket no está vacío
+  if [[ -n "$id_ticket" ]]; then
+    # Sacar el status del ticket, puede ser 1,2,3,4(activo) o 5,6(cerrado)
+    status_ticket=$(curl -s -X GET \
+      -H 'Content-Type: application/json' \
+      -H "Session-Token: XXXX" \
+      -H "App-Token: XXXX" \
+      "http://vx-qy-cmdb-01.vdp-prod.local/apirest.php/Ticket/$id_ticket?expand_dropdowns=true&range=0-999" | jq -r '.status')
+
+      ## DEBUG-Imprimir el estado del ticket
+      #echo "$status_ticket"
+
+    # Verificar si el estado se obtuvo correctamente y es un número
+    if [[ "$status_ticket" =~ ^[0-9]+$ ]]; then
+      if [ "$status_ticket" -le 5 ]; then
+        echo "El ticket '$ticket_name' está activo"
+      else
+        echo "El ticket '$ticket_name' está cerrado"
+      fi
+    else
+      echo "Error al obtener el estado del ticket '$ticket_name' o el estado no es un número válido."
+    fi
+  else
+    echo "Este ticket se ha borrado '$ticket_name'."
+  fi
+done

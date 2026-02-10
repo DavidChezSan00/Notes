@@ -1,0 +1,25 @@
+Taskwarrior setup (resumen)
+===========================
+
+Archivos clave
+- ~/.taskrc: salida monocroma; reporte list muestra ID/Project/Description con padding y sort por project; anchos ajustados.
+- ~/Documentos/scripts/tasks/task-helper.sh: helpers interactivos
+  - alias: tasknew, tasklist, taskdel, taskmod (definidos en ~/.bashrc)
+  - Colores por proyecto: Windows azul (`\033[34m`/desc `\033[38;5;81m`), Chocolatey verde (`\033[32m`/desc `\033[38;5;77m`), Network lavanda (`\033[38;5;103m`), AWS naranja (`\033[38;5;202m`). Descripciones usan el color del proyecto salvo PAUSED (naranja `\033[38;5;208m`); estados open en verde `\033[38;5;70m`.
+- tasknew: pide descripción, nota inicial opcional, proyecto opcional, recurrencia opcional; due:tomorrow por defecto. El estado se queda en open (por defecto). Acepta proyecto como argumento (`tasknew <Proyecto>`) para autocompletar con TAB.
+    - El ID de la tarea se extrae de la línea "Created task N" (evita capturar números de otros mensajes).
+    - Si es recurrente, toma la última tarea creada (la ocurrencia) para anotar la nota inicial.
+  - taskdel: lista pendientes y elimina por ID; si es recurrente borra por defecto toda la serie (plantilla + ocurrencias) sin preguntar.
+  - taskmod: permite cambiar desc/proyecto/due/recur/estado, añadir nota o denotate; ignora overrides y confirma recur/pager automáticamente.
+  - list_pending (alias tasklist): muestra ID/Project/Description/State (dedup recurrencias), permite filtrar por proyecto con `tasklist <Project>` (ej: Network/Windows/etc.), descripción truncada con elipsis a 100 cols y gap antes del estado, descripciones coloreadas por proyecto (Windows azul claro, Chocolatey verde, Network lavanda), estado open en verde (tono distinto a Chocolatey), paused en naranja con sufijo [PAUSED], notas debajo con sangrado extra, prefijo "- " y padding ANSI-aware.
+- ~/Documentos/scripts/tasks/task-daily.sh: reporte diario (invocado desde ~/.bashrc, una vez al día)
+  - Muestra solo Project + Description, ordenado por project, separa grupos con línea en blanco. Padding ANSI-aware en columna Project.
+  - Colores: Windows azul, Chocolatey verde, Network lavanda, AWS naranja (mismo tono que helper); descripciones usan color del proyecto. Si estado=paused (campo tw_state) o alguna nota contiene "paused", marca toda la línea en naranja y añade sufijo [PAUSED].
+- Ambos reportes (task-daily y list_pending del helper) deduplican recurrencias mostrando solo la instancia pendiente más próxima por project+description para evitar líneas duplicadas cuando Taskwarrior genera varias ocurrencias futuras.
+
+Comportamiento al abrir terminal
+- ~/.bashrc muestra el reporte diario una vez por día (flag /tmp/task_list_shown_YYYYMMDD_$USER) llamando a task-daily.sh.
+
+Otros detalles
+- Nota: el reporte diario y los helpers filtran mensajes "Configuration override".
+- Para forzar el aviso diario el mismo día: rm /tmp/task_list_shown_$(date +%Y%m%d)_$USER && source ~/.bashrc
